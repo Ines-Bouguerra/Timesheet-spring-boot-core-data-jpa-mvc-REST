@@ -16,6 +16,9 @@ public class EmployeService {
 	public void addEmploye(Employe employe){
 	employeRepository.save(employe);
 }
+	public Employe findEmploye(int id){
+		return employeRepository.findById(id).orElse(null);
+	}
 
 	
 }
