@@ -14,12 +14,12 @@ public class ContratService {
 	@Autowired
 	ContartRepository contartRepository ;
 	
-	public void addContrat(Contrat contrat){
-		contartRepository.save(contrat);
+	public Contrat addContrat(Contrat contrat){
+		return contartRepository.save(contrat);
 	}
 	
-	public void deleteContart(int ref){
-	contartRepository.delete(contartRepository.findById(ref).orElse(null));
+	public void deleteContart(Contrat contrat){
+	contartRepository.delete(contrat);
 	}
 	
 	public Contrat findcontart(int ref){
