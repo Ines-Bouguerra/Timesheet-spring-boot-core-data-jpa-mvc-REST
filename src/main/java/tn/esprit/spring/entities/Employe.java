@@ -1,5 +1,6 @@
 package tn.esprit.spring.entities;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -17,7 +18,7 @@ import javax.persistence.OneToOne;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-public class Employe {
+public class Employe implements Serializable {
 	private static final long serialVersionUID = -1396669830860400871L;
 
 	@Id
@@ -38,7 +39,11 @@ public class Employe {
 	private Role role;
 	
 	
-
+	//@JsonBackReference  
+	@JsonIgnore
+	@ManyToMany(mappedBy="employes",fetch=FetchType.EAGER )
+	//@NotNull
+	private List<Departement> departements;
 	
 	
 	public Employe() {
@@ -49,6 +54,22 @@ public class Employe {
 	
 	
 	
+	public List<Departement> getDepartements() {
+		return departements;
+	}
+
+
+
+
+
+	public void setDepartements(List<Departement> departements) {
+		this.departements = departements;
+	}
+
+
+
+
+
 	public Employe(String prenom, String nom, String email, boolean actif, String password, Role role) {
 		super();
 		this.prenom = prenom;
