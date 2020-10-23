@@ -22,13 +22,13 @@ import tn.esprit.spring.entities.Contrat;
 import tn.esprit.spring.entities.Employe;
 import tn.esprit.spring.repository.ContartRepository;
 import tn.esprit.spring.services.ContratService;
-import tn.esprit.spring.services.EmployeService;
+import tn.esprit.spring.services.EmployeServiceImpl;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class testAppTimeSheet {
 	@Autowired
-	EmployeService employeService;
+	EmployeServiceImpl employeService;
 	@Autowired
 	ContratService contratService ;
 	
