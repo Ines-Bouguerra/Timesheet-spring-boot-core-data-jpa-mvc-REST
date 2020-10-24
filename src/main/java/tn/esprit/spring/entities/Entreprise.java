@@ -33,7 +33,7 @@ public class Entreprise implements Serializable{
 	@OneToMany(mappedBy="entreprise", 
 			cascade = {CascadeType.PERSIST, CascadeType.REMOVE}, 
 			fetch=FetchType.EAGER)
-	private List<Departement> departements = new ArrayList<>(); 
+	private List<Departement> departements = new ArrayList<>();
 
 	public Entreprise() {
 		super();
@@ -75,24 +75,12 @@ public class Entreprise implements Serializable{
 	public void setDepartements(List<Departement> departements) {
 		this.departements = departements;
 	}
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-
-	/*public List<Departement> getDepartements() {
-		return departements;
-	}
-
-	public void setDepartements(List<Departement> departements) {
-		this.departements = departements;
-	}
 	
 	
 	public void addDepartement(Departement departement){
 		departement.setEntreprise(this);
 		this.departements.add(departement);
-	}*/
+	}
 
 
 
