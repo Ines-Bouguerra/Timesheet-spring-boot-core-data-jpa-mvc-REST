@@ -1,5 +1,7 @@
+
 package tn.esprit.spring.entities;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -12,11 +14,12 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import tn.esprit.spring.entities.Role;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-public class Employe {
+public class Employe implements Serializable {
 	private static final long serialVersionUID = -1396669830860400871L;
 
 	@Id
@@ -31,23 +34,53 @@ public class Employe {
 	private String email;
 
 	private boolean actif;
-	private String password;
-	@Enumerated(EnumType.STRING)
-	// @NotNull
-	private Role role;
-
+	private String password;	
+	//@Enumerated(EnumType.STRING)
+	//private Role role;
+	
+	@JsonIgnore
+	//@JsonBackReference
+	@OneToOne(mappedBy="employe")
+	private Contrat contrat;
+	
+	
+	//@JsonBackReference  
+	@JsonIgnore
+	@ManyToMany(mappedBy="employes",fetch=FetchType.EAGER )
+	//@NotNull
+	private List<Departement> departements;
+	
+	
 	public Employe() {
 		super();
 	}
+	
+	
+	
+	
+	
+	public List<Departement> getDepartements() {
+		return departements;
+	}
 
-	public Employe(String prenom, String nom, String email, boolean actif, String password, Role role) {
+
+
+
+
+	public void setDepartements(List<Departement> departements) {
+		this.departements = departements;
+	}
+
+
+
+
+	public Employe(String prenom, String nom, String password, String email, boolean actif) {
 		super();
 		this.prenom = prenom;
 		this.nom = nom;
+		this.password = password;
 		this.email = email;
 		this.actif = actif;
-		this.password = password;
-		this.role = role;
 	}
 
 	public Employe(int id, String prenom, String nom, String email, boolean actif, String password, Role role) {
@@ -55,11 +88,13 @@ public class Employe {
 		this.id = id;
 		this.prenom = prenom;
 		this.nom = nom;
+		this.password = password;
 		this.email = email;
 		this.actif = actif;
-		this.password = password;
-		this.role = role;
+		this.contrat = contrat;
 	}
+	
+	
 
 	public Employe(String prenom, String nom, String email, boolean actif, String password) {
 		super();
@@ -147,17 +182,47 @@ public class Employe {
 		this.actif = actif;
 	}
 
-	public Role getRole() {
-		return role;
-	}
-
-	public void setRole(Role role) {
-		this.role = role;
-	}
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
+	
+
+	@JsonIgnore
+	//@JsonBackReference
+	@OneToMany(mappedBy="employe")
+	private List<Timesheet> timesheets;
+
+
+	public Contrat getContrat() {
+		return contrat;
+	}
+
+
+
+
+
+	public void setContrat(Contrat contrat) {
+		this.contrat = contrat;
+	}
+
+
+
+
+
+	public List<Timesheet> getTimesheets() {
+		return timesheets;
+	}
+
+
+
+
+
+	public void setTimesheets(List<Timesheet> timesheets) {
+		this.timesheets = timesheets;
+	}	
+	
+	
 
 	@JsonIgnore
 	// @JsonBackReference
@@ -172,3 +237,4 @@ public class Employe {
 		this.timesheets = timesheets;
 	}
 }
+
