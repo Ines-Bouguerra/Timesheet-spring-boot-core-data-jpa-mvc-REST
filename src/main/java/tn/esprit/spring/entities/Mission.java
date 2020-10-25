@@ -16,28 +16,34 @@ public class Mission implements Serializable {
 	private static final long serialVersionUID = -5369734855993305723L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
+
 	private String name;
-	
+
 	private String description;
-	
+
 //	@ManyToOne
 //	private Departement departement;
 //	
-//	@OneToMany(mappedBy="mission")
-//	private  List<Timesheet> timesheets;
-	
+	@OneToMany(mappedBy = "mission")
+	private  List<Timesheet> timesheets;
+
 	public Mission() {
 		super();
 	}
 
-	public Mission(String name, String description){
+	public Mission(String name, String description) {
 		this.name = name;
 		this.description = description;
 	}
-	
+
+	public Mission(int id, String name, String description) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.description = description;
+	}
 
 	public int getId() {
 		return id;
@@ -71,14 +77,12 @@ public class Mission implements Serializable {
 //		this.departement = departement;
 //	}
 //
-//	public List<Timesheet> getTimesheets() {
-//		return timesheets;
-//	}
-//
-//	public void setTimesheets(List<Timesheet> timesheets) {
-//		this.timesheets = timesheets;
-//	}
-	
-	
+	public List<Timesheet> getTimesheets() {
+		return timesheets;
+	}
+
+	public void setTimesheets(List<Timesheet> timesheets) {
+		this.timesheets = timesheets;
+	}
 
 }

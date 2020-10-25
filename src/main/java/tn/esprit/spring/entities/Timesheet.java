@@ -8,27 +8,26 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class Timesheet implements Serializable{
+public class Timesheet implements Serializable {
 
 	private static final long serialVersionUID = 3876346912862238239L;
 
 	@EmbeddedId
 	private TimesheetPK timesheetPK;
-	
-//	//idMission est a la fois primary key et foreign key
-//	@ManyToOne
-//    @JoinColumn(name = "idMission", referencedColumnName = "id", insertable=false, updatable=false)
-//	private Mission mission;
+
+	// idMission est a la fois primary key et foreign key
+	@ManyToOne
+	@JoinColumn(name = "idMission", referencedColumnName = "id", insertable = false, updatable = false)
+	private Mission mission;
+
+	// idEmploye est a la fois primary key et foreign key
+
+	@ManyToOne
+	@JoinColumn(name = "idEmploye", referencedColumnName = "id", insertable = false, updatable = false)
+	private Employe employe;
 //	
-//	//idEmploye est a la fois primary key et foreign key
-//	
-//	@ManyToOne
-//    @JoinColumn(name = "idEmploye", referencedColumnName = "id", insertable=false, updatable=false)
-//	private Employe employe;
-//	
-	
+
 	private boolean isValide;
-	
 
 	public boolean isValide() {
 		return isValide;
@@ -46,22 +45,20 @@ public class Timesheet implements Serializable{
 		this.timesheetPK = timesheetPK;
 	}
 
-//	public Mission getMission() {
-//		return mission;
-//	}
-//
-//	public void setMission(Mission mission) {
-//		this.mission = mission;
-//	}
-//
-//	public Employe getEmploye() {
-//		return employe;
-//	}
-//
-//	public void setEmploye(Employe employe) {
-//		this.employe = employe;
-//	}
+	public Mission getMission() {
+		return mission;
+	}
 
-	
-	
+	public void setMission(Mission mission) {
+		this.mission = mission;
+	}
+
+	public Employe getEmploye() {
+		return employe;
+	}
+
+	public void setEmploye(Employe employe) {
+		this.employe = employe;
+	}
+
 }

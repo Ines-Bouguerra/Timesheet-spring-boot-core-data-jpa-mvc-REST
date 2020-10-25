@@ -13,7 +13,6 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
@@ -21,34 +20,26 @@ public class Employe {
 	private static final long serialVersionUID = -1396669830860400871L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
+
 	private String prenom;
-	
+
 	private String nom;
-	
-	//@Column(unique=true)
+
+	// @Column(unique=true)
 	private String email;
 
 	private boolean actif;
-	private String password;	
+	private String password;
 	@Enumerated(EnumType.STRING)
-	//@NotNull
+	// @NotNull
 	private Role role;
-	
-	
 
-	
-	
 	public Employe() {
 		super();
 	}
-	
-	
-	
-	
-	
+
 	public Employe(String prenom, String nom, String email, boolean actif, String password, Role role) {
 		super();
 		this.prenom = prenom;
@@ -58,10 +49,6 @@ public class Employe {
 		this.password = password;
 		this.role = role;
 	}
-
-
-
-
 
 	public Employe(int id, String prenom, String nom, String email, boolean actif, String password, Role role) {
 		super();
@@ -74,10 +61,6 @@ public class Employe {
 		this.role = role;
 	}
 
-
-
-
-
 	public Employe(String prenom, String nom, String email, boolean actif, String password) {
 		super();
 		this.prenom = prenom;
@@ -86,11 +69,6 @@ public class Employe {
 		this.actif = actif;
 		this.password = password;
 	}
-	
-
-
-
-
 
 	public Employe(int id, String prenom, String nom, String email, boolean actif, String password) {
 		super();
@@ -102,12 +80,18 @@ public class Employe {
 		this.password = password;
 	}
 
-
-
-
-
 	public Employe(String prenom, String nom, String email, boolean actif, Role role) {
 		super();
+		this.prenom = prenom;
+		this.nom = nom;
+		this.email = email;
+		this.actif = actif;
+		this.role = role;
+	}
+
+	public Employe(int id, String prenom, String nom, String email, boolean actif, Role role) {
+		super();
+		this.id = id;
 		this.prenom = prenom;
 		this.nom = nom;
 		this.email = email;
@@ -155,9 +139,6 @@ public class Employe {
 		this.email = email;
 	}
 
-
-	
-
 	public boolean isActif() {
 		return actif;
 	}
@@ -174,12 +155,20 @@ public class Employe {
 		this.role = role;
 	}
 
-	
-
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-	
-	
 
+	@JsonIgnore
+	// @JsonBackReference
+	@OneToMany(mappedBy = "employe")
+	private List<Timesheet> timesheets;
+
+	public List<Timesheet> getTimesheets() {
+		return timesheets;
+	}
+
+	public void setTimesheets(List<Timesheet> timesheets) {
+		this.timesheets = timesheets;
+	}
 }
