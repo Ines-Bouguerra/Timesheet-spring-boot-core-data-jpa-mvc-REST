@@ -29,6 +29,9 @@ public class Departement implements Serializable{
 	@ManyToMany
 	private List<Employe> employes;
 
+	@OneToMany(mappedBy="departement")
+	private List<Mission> missions;
+	
 	public Departement() {
 		super();
 	}
@@ -63,6 +66,14 @@ public class Departement implements Serializable{
 		this.employes = employes;
 	}
 	
+	public List<Mission> getMissions() {
+		return missions;
+	}
+
+	public void setMissions(List<Mission> missions) {
+		this.missions = missions;
+	}
+	
 	@ManyToOne
 	private Entreprise entreprise;
 
@@ -73,6 +84,8 @@ public class Departement implements Serializable{
 	public void setEntreprise(Entreprise entreprise) {
 		this.entreprise = entreprise;
 	}
+	
+	
 	
 
 }
