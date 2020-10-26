@@ -22,9 +22,14 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import tn.esprit.spring.entities.Contrat;
 import tn.esprit.spring.entities.Employe;
+import tn.esprit.spring.entities.Mission;
+import tn.esprit.spring.entities.Role;
 import tn.esprit.spring.repository.ContartRepository;
 import tn.esprit.spring.services.ContratService;
 import tn.esprit.spring.services.EmployeServiceImpl;
+import tn.esprit.spring.services.IEmployeService;
+import tn.esprit.spring.services.IMissionService;
+import tn.esprit.spring.services.ITimesheetService;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -32,50 +37,60 @@ public class testAppTimeSheet {
 	@Autowired
 	EmployeServiceImpl employeService;
 	@Autowired
-	ContratService contratService ;
-	
+	ContratService contratService;
+	@Autowired
+	ITimesheetService iTimesheetService;
+	@Autowired
+	IEmployeService iEmployeService;
+	@Autowired
+	IMissionService iMissionService;
 	@MockBean
-	ContartRepository contratrepository ;
-	
-	
+	ContartRepository contratrepository;
+
 	SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-	
-	/*
+
 	@Test
 	public void contextLoads() throws ParseException {
-		Employe yasser = new Employe("yasser","Bel Haj Ali","testmdp","yasser.belhajali@esprit.tn",true);
-		employeService.addEmploye(yasser);
-		 Date debut = dateFormat.parse("21/10/2020");
-		Contrat contrat = new Contrat(debut,"Contrat a vie",32F,yasser);
-		contratService.addContrat(contrat);
-		}
-		*/
-	
-	@Test //// Test pour la methode allContrats Si elle returne 2 on valide sinon Erreur
-	public void getContratTest() throws ParseException { 
-		Employe yasser =employeService.findEmploye(1);
-		 Date debut = dateFormat.parse("21/10/2020");
-		when(contratrepository.findAll()).thenReturn(Stream
-				.of(new Contrat(debut,"Contrat de location",32F,yasser), new Contrat(debut,"Contrat de vente",440F,yasser)).collect(Collectors.toList()));
-		assertEquals(2, contratService.allContrats().size());
+//		Employe yasser = new Employe("yasser","Bel Haj Ali","testmdp","yasser.belhajali@esprit.tn",true);
+//		employeService.addEmploye(yasser);
+//		 Date debut = dateFormat.parse("21/10/2020");
+//		Contrat contrat = new Contrat(debut,"Contrat a vie",32F,yasser);
+//		contratService.addContrat(contrat);
+		SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+
+		Mission mission = new Mission(1, "mission one", "mission desc");
+		Employe employe = new Employe(2, "ines", "ines", "ines@gmail.com", "123456l", true, Role.INGENIEUR);
+		Date dateDebut = dateFormat.parse("22/10/2020");
+		Date dateFin = dateFormat.parse("31/10/2020");
+		iEmployeService.addOrUpdateEmploye(employe);
+		iTimesheetService.ajouterTimesheet(1, employe.getId(), dateDebut, dateFin);
 	}
-	
-	@Test //// Test pour la methode Ajout 
-	public void saveContratTest() throws ParseException { 
-		Employe yasser =employeService.findEmploye(1);
-		 Date debut = dateFormat.parse("21/10/2020");
-		Contrat contrat = new Contrat(debut,"Contrat TEST",245F,yasser);
-		when(contratrepository.save(contrat)).thenReturn(contrat);
-		assertEquals(contrat, contratService.addContrat(contrat));
-	}
-	
-	@Test
-	public void deleteUserTest() throws ParseException { /// vrifier si la methode a bien ete appeler et combien de fois 
-		Employe yasser =employeService.findEmploye(1);
-		 Date debut = dateFormat.parse("21/10/2020");
-		Contrat contrat = new Contrat(debut,"Contrat TEST",245F,yasser);
-		contratService.deleteContart(contrat);
-		verify(contratrepository,times(1)).delete(contrat);
-	}
-	
+
+//	@Test //// Test pour la methode allContrats Si elle returne 2 on valide sinon Erreur
+//	public void getContratTest() throws ParseException { 
+//		Employe yasser =employeService.findEmploye(1);
+//		 Date debut = dateFormat.parse("21/10/2020");
+//		when(contratrepository.findAll()).thenReturn(Stream
+//				.of(new Contrat(debut,"Contrat de location",32F,yasser), new Contrat(debut,"Contrat de vente",440F,yasser)).collect(Collectors.toList()));
+//		assertEquals(2, contratService.allContrats().size());
+//	}
+//	
+//	@Test //// Test pour la methode Ajout 
+//	public void saveContratTest() throws ParseException { 
+//		Employe yasser =employeService.findEmploye(1);
+//		 Date debut = dateFormat.parse("21/10/2020");
+//		Contrat contrat = new Contrat(debut,"Contrat TEST",245F,yasser);
+//		when(contratrepository.save(contrat)).thenReturn(contrat);
+//		assertEquals(contrat, contratService.addContrat(contrat));
+//	}
+//	
+//	@Test
+//	public void deleteUserTest() throws ParseException { /// vrifier si la methode a bien ete appeler et combien de fois 
+//		Employe yasser =employeService.findEmploye(1);
+//		 Date debut = dateFormat.parse("21/10/2020");
+//		Contrat contrat = new Contrat(debut,"Contrat TEST",245F,yasser);
+//		contratService.deleteContart(contrat);
+//		verify(contratrepository,times(1)).delete(contrat);
+//	}
+
 }

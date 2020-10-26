@@ -15,7 +15,10 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
 public class Employe implements Serializable {
@@ -32,9 +35,8 @@ public class Employe implements Serializable {
 
 	// @Column(unique=true)
 	private String email;
-
-	private boolean isActif;
 	private String password;
+	private boolean isActif;
 
 	@Enumerated(EnumType.STRING)
 	// @NotNull
@@ -108,6 +110,18 @@ public class Employe implements Serializable {
 		this.isActif = isActif;
 	}
 
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
 	public Role getRole() {
 		return role;
 	}
@@ -140,64 +154,24 @@ public class Employe implements Serializable {
 		this.timesheets = timesheets;
 	}
 
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-
-	public Employe(String prenom, String nom, String password, String email, boolean actif) {
-		super();
-		this.prenom = prenom;
-		this.nom = nom;
-		this.password = password;
-		this.email = email;
-		this.isActif = actif;
-	}
-
-	public Employe(int id, String prenom, String nom, String email, boolean actif, String password, Role role) {
-		super();
-		this.id = id;
-		this.prenom = prenom;
-		this.nom = nom;
-		this.password = password;
-		this.email = email;
-		this.isActif = actif;
-		this.contrat = contrat;
-	}
-
-	public Employe(String prenom, String nom, String email, boolean actif, String password) {
-		super();
-		this.prenom = prenom;
-		this.nom = nom;
-		this.email = email;
-		this.isActif = actif;
-		this.password = password;
-	}
-
-	public Employe(int id, String prenom, String nom, String email, boolean actif, String password) {
+	public Employe(int id, String prenom, String nom, String email, boolean isActif, Role role) {
 		super();
 		this.id = id;
 		this.prenom = prenom;
 		this.nom = nom;
 		this.email = email;
-		this.isActif = actif;
-		this.password = password;
+		this.isActif = isActif;
+		this.role = role;
 	}
 
-	public Employe(int id, String prenom, String nom, String email, boolean actif, Role role) {
+	public Employe(int id, String prenom, String nom, String email, String password, boolean isActif, Role role) {
 		super();
 		this.id = id;
 		this.prenom = prenom;
 		this.nom = nom;
 		this.email = email;
-		this.isActif = actif;
+		this.password = password;
+		this.isActif = isActif;
 		this.role = role;
 	}
 
