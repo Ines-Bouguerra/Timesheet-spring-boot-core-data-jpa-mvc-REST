@@ -54,24 +54,6 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
-<<<<<<< HEAD
-<!-- 		<dependency> -->
-<!-- 			<groupId>log4j</groupId> -->
-<!-- 			<artifactId>log4j</artifactId> -->
-<!-- 			<version>1.2.17</version> -->
-<!-- 		</dependency> -->
-<!-- 		<dependency> -->
-<!-- 			<groupId>org.springframework.boot</groupId> -->
-<!-- 			<artifactId>spring-boot-starter-test</artifactId> -->
-<!-- 			<scope>test</scope> -->
-<!-- 			<exclusions> -->
-<!-- 				<exclusion> -->
-<!-- 					<groupId>org.junit.vintage</groupId> -->
-<!-- 					<artifactId>junit-vintage-engine</artifactId> -->
-<!-- 				</exclusion> -->
-<!-- 			</exclusions> -->
-<!-- 		</dependency> -->
-=======
 
 		<dependency>
 			<groupId>log4j</groupId>
@@ -79,7 +61,6 @@
 			<version>1.2.17</version>
 		</dependency>
 
->>>>>>> 0d28c167b2e11bc990f8dc393803d771afc0d0da
 	</dependencies>
 
 	<build>

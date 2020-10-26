@@ -35,8 +35,8 @@ public class Employe implements Serializable {
 
 	private boolean actif;
 	private String password;	
-	//@Enumerated(EnumType.STRING)
-	//private Role role;
+	@Enumerated(EnumType.STRING)
+	private Role role;
 	
 	@JsonIgnore
 	//@JsonBackReference
@@ -186,43 +186,7 @@ public class Employe implements Serializable {
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-	
 
-	@JsonIgnore
-	//@JsonBackReference
-	@OneToMany(mappedBy="employe")
-	private List<Timesheet> timesheets;
-
-
-	public Contrat getContrat() {
-		return contrat;
-	}
-
-
-
-
-
-	public void setContrat(Contrat contrat) {
-		this.contrat = contrat;
-	}
-
-
-
-
-
-	public List<Timesheet> getTimesheets() {
-		return timesheets;
-	}
-
-
-
-
-
-	public void setTimesheets(List<Timesheet> timesheets) {
-		this.timesheets = timesheets;
-	}	
-	
-	
 
 	@JsonIgnore
 	// @JsonBackReference
