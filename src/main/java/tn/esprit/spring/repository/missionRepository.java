@@ -8,7 +8,7 @@ import tn.esprit.spring.entities.Mission;
 
 @Repository
 public interface missionRepository extends CrudRepository<Mission,Integer>{
-	@Query(value="select count(*)",nativeQuery=true)
+	@Query(value="select count(*) FROM mission",nativeQuery=true)
 	public float numberMissions();	
 
 }
