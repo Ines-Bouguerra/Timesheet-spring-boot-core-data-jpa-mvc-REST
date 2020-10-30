@@ -31,8 +31,8 @@ public class MissionTest {
 	}
 	
 	@Test
-	public void showMissionsBy() throws ParseException{
-		iMissionService.getMissionsByDepartementName(1);
+	public void showMissionsByDepartement() throws ParseException{
+		iMissionService.getMissionsByDepartement(3);
 	}
 	
 	@Test
