@@ -45,8 +45,8 @@ public class TimesheetTest {
 	public void addTimesheet() throws ParseException {
 		Date dateDebut = dateFormat.parse("22/10/2020");
 		Date dateFin = dateFormat.parse("31/10/2020");
-		iEmployeService.addOrUpdateEmploye(employe);
-		iTimesheetService.ajouterTimesheet(1, employe.getId(), dateDebut, dateFin);
+//		iEmployeService.addOrUpdateEmploye(employe);
+//		iTimesheetService.ajouterTimesheet(1, employe.getId(), dateDebut, dateFin);
 
 	}
 
