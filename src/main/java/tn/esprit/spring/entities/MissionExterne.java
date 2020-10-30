@@ -44,6 +44,14 @@ public class MissionExterne extends Mission {
 	public void setTauxJournalierMoyen(float tauxJournalierMoyen) {
 		this.tauxJournalierMoyen = tauxJournalierMoyen;
 	}
+
+
+	@Override
+	public String toString() {
+		return "MissionExterne [id=" + getId() + ", name=" + getName() + ", description=" + getDescription() + ", departement=" + getDepartement()
+				+ ", timesheets=" + getTimesheets() + "emailFacturation=" + emailFacturation + ", tauxJournalierMoyen=" + tauxJournalierMoyen
+				+ "]";
+	}
 	
 	
 	
