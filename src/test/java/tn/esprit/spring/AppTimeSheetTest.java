@@ -48,16 +48,16 @@ public class AppTimeSheetTest {
 
 	SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 
-	@Test
-	public void contextLoads() throws ParseException {
-		Employe yasser = new Employe("yasser","Bel Haj Ali","testmdp","yasser.belhajali@esprit.tn",true);
-	employeService.addOrUpdateEmploye(yasser);
-	 Date debut = dateFormat.parse("21/10/2020");
-		Contrat contrat = new Contrat(debut,"Contrat a vie",32F,yasser);
-		contratService.addContrat(contrat);
-
-		
-	}
+//	@Test
+//	public void contextLoads() throws ParseException {
+//		Employe yasser = new Employe("yasser","Bel Haj Ali","testmdp","yasser.belhajali@esprit.tn",true);
+//	employeService.addOrUpdateEmploye(yasser);
+//	 Date debut = dateFormat.parse("21/10/2020");
+//		Contrat contrat = new Contrat(debut,"Contrat a vie",32F,yasser);
+//		contratService.addContrat(contrat);
+//
+//		
+//	}
 
 	@Test //// Test pour la methode allContrats Si elle returne 2 on valide sinon Erreur
 	public void getContratTest() throws ParseException { 
