@@ -9,7 +9,7 @@ import tn.esprit.spring.entities.Contrat;
 import tn.esprit.spring.repository.ContartRepository;
 
 @Service
-public class ContratService {
+public class ContratService implements IContratServiceImpl {
 	
 	@Autowired
 	ContartRepository contartRepository ;
