@@ -82,9 +82,8 @@ public class TimesheetTest {
 		Date dateDebut = dateFormat.parse("22/10/2020");
 		Date dateFin = dateFormat.parse("31/10/2020");
 		timesheets = iTimesheetService.getTimesheetsByMissionAndDate(employe, mission, dateDebut, dateFin);
-<<<<<<< HEAD
 	}
-=======
+
 		return timesheets;
 	}  */
 }
