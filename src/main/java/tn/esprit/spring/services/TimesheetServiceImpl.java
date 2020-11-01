@@ -51,9 +51,8 @@ public class TimesheetServiceImpl implements ITimesheetService {
 	@Override
 	public void validerTimesheet(int missionId, int employeId, Date dateDebut, Date dateFin, int validateurId) {
 		logger.info("In validate Timesheet");
-		Employe validateur = employeRepository.findById(validateurId).orElse(null);
-		
-		Mission mission = mRepository.findById(missionId).orElse(null);
+		Employe validateur = employeRepository.findById(validateurId).get();
+		Mission mission = mRepository.findById(missionId).get();
 		if (!validateur.getRole().equals(Role.CHEF_DEPARTEMENT)) {
 			logger.info("The employee must be the head of the department to validate a timesheet!");
 			return;
