@@ -30,10 +30,10 @@ public class MissionTest {
 		iMissionService.getAllMissions();
 	}
 	
-	@Test
-	public void showMissionsByDepartement() throws ParseException{
-		iMissionService.getMissionsByDepartement(3);
-	}
+//	@Test
+//	public void showMissionsByDepartement(int id) throws ParseException{
+//		iMissionService.getMissionsByDepartement(id);
+//	}
 	
 	@Test
 	public void addMission() throws ParseException{
