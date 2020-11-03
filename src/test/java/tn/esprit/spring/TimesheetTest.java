@@ -1,5 +1,8 @@
 package tn.esprit.spring;
 
+import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.when;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -12,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import tn.esprit.spring.entities.Contrat;
 import tn.esprit.spring.entities.Employe;
 import tn.esprit.spring.entities.Mission;
 import tn.esprit.spring.entities.Role;
@@ -35,55 +39,42 @@ public class TimesheetTest {
 	IEmployeService iEmployeService;
 	@Autowired
 	IMissionService iMissionService;
-	
-	
+
 	@Test
 	public void addEmploye() throws ParseException {
 		Employe employe = new Employe(2, "amine", "amine", "a@gmail.com", "123456l", true, Role.INGENIEUR);
 		iEmployeService.addOrUpdateEmploye(employe);
-	
+
 	}
-	
-	
-	/*
+
 	SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 	List<Timesheet> timesheets = new ArrayList<Timesheet>();
-	Employe employe = new Employe(2, "ines", "ines", "ines@gmail.com", "123456l", true, Role.INGENIEUR);
-	Mission mission = new Mission(2, "tetm", "testmm");
+	Employe employe = new Employe(1, "ines", "ines", "ines@gmail.com", "123456l", true, Role.INGENIEUR);
+	Mission mission = new Mission(22, "tetm", "testmm");
 
-<<<<<<< HEAD
-//	@Test
-//	public void addTimesheet() throws ParseException {
-//		Date dateDebut = dateFormat.parse("22/10/2020");
-//		Date dateFin = dateFormat.parse("31/10/2020");
-//		iEmployeService.addOrUpdateEmploye(employe);
-//		iTimesheetService.ajouterTimesheet(1, employe.getId(), dateDebut, dateFin);
-//
-//	}
-	
-	
 	@Test
 	public void addTimesheet() throws ParseException {
 		Date dateDebut = dateFormat.parse("22/10/2020");
 		Date dateFin = dateFormat.parse("31/10/2020");
 		iEmployeService.addOrUpdateEmploye(employe);
-		iTimesheetService.ajouterTimesheet(1, employe.getId(), dateDebut, dateFin);
+//		iTimesheetService.ajouterTimesheet(1, employe.getId(), dateDebut, dateFin);
 
 	}
->>>>>>> 4c434b1... methode de test
 
 	@Test
 	public void validateTimesheet() throws ParseException {
-		// to do
+//		Date dateDebut = dateFormat.parse("22/10/2020");
+//		Date dateFin = dateFormat.parse("31/10/2020");
+//		iTimesheetService.validerTimesheet(1, 3, dateDebut, dateFin, 2);
+
 	}
 
 	@Test
 	public void getTimesheetsByMissionAndDate() throws ParseException {
 		Date dateDebut = dateFormat.parse("22/10/2020");
 		Date dateFin = dateFormat.parse("31/10/2020");
+		iMissionService.addMission(mission);
 		timesheets = iTimesheetService.getTimesheetsByMissionAndDate(employe, mission, dateDebut, dateFin);
 	}
 
-		return timesheets;
-	}  */
 }
