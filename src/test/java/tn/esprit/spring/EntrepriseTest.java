@@ -48,7 +48,7 @@ public class EntrepriseTest {
 	
 	@Test
 	public void getAllDepartementsNamesByEntreprise() throws ParseException{
-		entrepriseService.getAllDepartementsNamesByEntreprise(1);
+		//entrepriseService.getAllDepartementsNamesByEntreprise(1);
 	}
 	
 	
