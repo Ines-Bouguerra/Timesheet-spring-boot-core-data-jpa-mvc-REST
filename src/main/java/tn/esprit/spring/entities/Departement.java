@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -28,7 +29,7 @@ public class Departement implements Serializable{
 	@ManyToMany
 	private List<Employe> employes;
 
-	@OneToMany(mappedBy="departement")
+	@OneToMany(mappedBy="departement", fetch = FetchType.EAGER)
 	private List<Mission> missions;
 	
 	public Departement() {
@@ -83,6 +84,14 @@ public class Departement implements Serializable{
 	public void setEntreprise(Entreprise entreprise) {
 		this.entreprise = entreprise;
 	}
+
+	@Override
+	public String toString() {
+		return "Departement [id=" + id + ", name=" + name + ", missions=" + missions + "]";
+	}
+
+
+
 	
 	
 	

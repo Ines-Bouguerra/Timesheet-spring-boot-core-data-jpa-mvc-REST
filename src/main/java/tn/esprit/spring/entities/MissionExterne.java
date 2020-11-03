@@ -48,7 +48,7 @@ public class MissionExterne extends Mission {
 
 	@Override
 	public String toString() {
-		return "MissionExterne [id=" + getId() + ", name=" + getName() + ", description=" + getDescription() + ", departement=" + getDepartement()
+		return "MissionExterne [id=" + getId() + ", name=" + getName() + ", description=" + getDescription()
 				+ ", timesheets=" + getTimesheets() + "emailFacturation=" + emailFacturation + ", tauxJournalierMoyen=" + tauxJournalierMoyen
 				+ "]";
 	}

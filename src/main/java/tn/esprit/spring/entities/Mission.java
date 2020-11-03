@@ -89,9 +89,10 @@ public class Mission implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Mission [id=" + id + ", name=" + name + ", description=" + description + ", departement=" + departement
-				+ ", timesheets=" + timesheets + "]";
+		return "Mission [id=" + id + ", name=" + name + ", description=" + description + ", timesheets=" + timesheets
+				+ "]";
 	}
+
 	
 
 }
