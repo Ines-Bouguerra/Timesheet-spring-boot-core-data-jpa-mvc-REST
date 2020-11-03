@@ -21,13 +21,13 @@ public class MissionTest {
 	
 	@Test
 	public void addMissionExterne() throws ParseException{
-		MissionExterne mission = new MissionExterne("name","description","emailFacturation",11);
-		iMissionService.addMission(mission);
+//		MissionExterne mission = new MissionExterne("name","description","emailFacturation",11);
+//		iMissionService.addMission(mission);
 	}
 
 	@Test
 	public void showMissions() throws ParseException{
-		iMissionService.getAllMissions();
+//		iMissionService.getAllMissions();
 	}
 	
 //	@Test
@@ -37,8 +37,8 @@ public class MissionTest {
 	
 	@Test
 	public void addMission() throws ParseException{
-		Mission mission = new Mission("name","description");
-		iMissionService.addMission(mission);
+//		Mission mission = new Mission("name","description");
+//		iMissionService.addMission(mission);
 	}
 	
 	@Test
