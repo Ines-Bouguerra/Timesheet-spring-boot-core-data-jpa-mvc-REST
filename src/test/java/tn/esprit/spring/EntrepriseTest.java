@@ -21,7 +21,7 @@ public class EntrepriseTest {
 	
 	
 	
-	/*
+	
 	
 	@Test
 	public void ajouterEntreprise() throws ParseException{
@@ -34,15 +34,15 @@ public class EntrepriseTest {
 	
 	@Test
 	public void ajouterDepartement() throws ParseException{
-		Departement departement = new Departement("Embarqué");
-		entrepriseService.ajouterDepartement(departement);
+//		Departement departement = new Departement("Embarqué");
+//		entrepriseService.ajouterDepartement(departement);
 	}
 	
 	
 	@Test
 	public void affecterDepartementAEntreprise()throws ParseException{
 		
-		entrepriseService.affecterDepartementAEntreprise(1,4);
+//		entrepriseService.affecterDepartementAEntreprise(1,4);
 				}
 	
 	
@@ -61,14 +61,14 @@ public class EntrepriseTest {
 	
 	@Test
 	public void deleteDepartementById() throws ParseException{
-		entrepriseService.deleteDepartementById(2);
+//		entrepriseService.deleteDepartementById(2);
 	}
 	
 	@Test
 	public void getEntrepriseById() throws ParseException{
-		entrepriseService.getEntrepriseById(2);
+//		entrepriseService.getEntrepriseById(2);
 	}
 	
-	*/
+	
 }
 
