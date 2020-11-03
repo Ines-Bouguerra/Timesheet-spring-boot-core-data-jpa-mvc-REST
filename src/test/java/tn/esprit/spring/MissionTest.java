@@ -27,12 +27,12 @@ public class MissionTest {
 
 	@Test
 	public void showMissions() throws ParseException{
-		//iMissionService.getAllMissions();
+		iMissionService.getAllMissions();
 	}
 	
 	@Test
 	public void showMissionsByDepartement() throws ParseException{
-		//iMissionService.getMissionsByDepartement(1);
+		iMissionService.getMissionsByDepartement(1);
 	}
 	
 	@Test
