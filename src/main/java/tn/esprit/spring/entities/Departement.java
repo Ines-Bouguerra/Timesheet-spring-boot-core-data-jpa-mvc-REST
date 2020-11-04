@@ -9,7 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-
+import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -29,7 +29,8 @@ public class Departement implements Serializable{
 	@ManyToMany
 	private List<Employe> employes;
 
-	@OneToMany(mappedBy="departement")
+	
+    @OneToMany(mappedBy="departement")
 	private List<Mission> missions;
 	
 	public Departement() {
