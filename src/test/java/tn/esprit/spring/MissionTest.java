@@ -1,5 +1,7 @@
 package tn.esprit.spring;
 
+import static org.junit.Assert.assertNotNull;
+
 import java.text.ParseException;
 
 import org.junit.Test;
@@ -27,12 +29,12 @@ public class MissionTest {
 
 	@Test
 	public void showMissions() throws ParseException{
-		iMissionService.getAllMissions();
+		assertNotNull(iMissionService.getAllMissions());
 	}
 	
 	@Test
 	public void showMissionsByDepartement() throws ParseException{
-		iMissionService.getMissionsByDepartement(1);
+		assertNotNull(iMissionService.getMissionsByDepartement(1));
 	}
 	
 	@Test
