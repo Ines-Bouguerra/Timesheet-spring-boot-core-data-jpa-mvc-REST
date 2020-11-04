@@ -10,4 +10,5 @@ public interface IMissionService {
 	int nbrMissions();
 	List <Mission> getMissionsByDepartement(int departementId);
 	void deleteAllMissions();
+	
 }

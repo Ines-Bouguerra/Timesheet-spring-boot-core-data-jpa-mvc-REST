@@ -46,4 +46,9 @@ public class MissionTest {
 		iMissionService.nbrMissions();
 	}
 	
+	@Test
+	public void deleteAllMission() throws ParseException{
+		iMissionService.deleteAllMissions();
+	}
+	
 }
