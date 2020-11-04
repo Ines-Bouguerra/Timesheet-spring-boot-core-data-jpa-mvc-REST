@@ -24,12 +24,12 @@ public class MissionTest {
 		MissionExterne mission = new MissionExterne("name","description","emailFacturation",11);
 		iMissionService.addMission(mission);
 	}
-
+/*
 	@Test
 	public void showMissions() throws ParseException{
 		iMissionService.getAllMissions();
 	}
-	
+	*/
 //	@Test
 //	public void showMissionsByDepartement(int id) throws ParseException{
 //		iMissionService.getMissionsByDepartement(id);
