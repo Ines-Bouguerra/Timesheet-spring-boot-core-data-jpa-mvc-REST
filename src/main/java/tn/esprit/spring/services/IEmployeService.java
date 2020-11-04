@@ -30,6 +30,7 @@ public interface IEmployeService {
 	public float getSalaireByEmployeIdJPQL(int employeId);
 	public Double getSalaireMoyenByDepartementId(int departementId);
 	public List<Employe> getAllEmployes();
+	public Employe findEmploye(int id);
 	
 	
 	

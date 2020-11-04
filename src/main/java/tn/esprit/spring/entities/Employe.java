@@ -195,4 +195,11 @@ public class Employe implements Serializable {
 		this.role = role;
 	}
 
+	@Override
+	public String toString() {
+		return "Employe [id=" + id + ", prenom=" + prenom + ", nom=" + nom + ", email=" + email + ", password="
+				+ password + ", isActif=" + isActif + ", role=" + role + ", departements=" + departements + ", contrat="
+				+ contrat + ", timesheets=" + timesheets + "]";
+	}
+
 }

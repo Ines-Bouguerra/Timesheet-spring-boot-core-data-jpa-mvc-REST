@@ -26,6 +26,7 @@ import tn.esprit.spring.entities.Role;
 import tn.esprit.spring.repository.ContartRepository;
 import tn.esprit.spring.services.ContratService;
 import tn.esprit.spring.services.EmployeServiceImpl;
+import tn.esprit.spring.services.IContratServiceImpl;
 import tn.esprit.spring.services.IEmployeService;
 import tn.esprit.spring.services.IMissionService;
 import tn.esprit.spring.services.ITimesheetService;
@@ -45,10 +46,30 @@ public class AppTimeSheetTest {
 	IMissionService iMissionService;
 	@MockBean
 	ContartRepository contratrepository;
-
+	
+	@Autowired
+	IContratServiceImpl IcontratServiceImpl;
+	
+	public AppTimeSheetTest() {
+		// TODO Auto-generated constructor stub
+	}
 	SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-
-
+	
+	@Test //// Test pour la methode allContrats Si elle returne 2 on valide sinon Erreur
+	public void getajout() throws ParseException { 
+		
+		Employe yasser = new Employe();
+		
+		
+		Date debut = dateFormat.parse("21/10/2020");
+		Contrat contrat = new Contrat(1,debut,"location",23f);
+		System.out.print("tesssssssst"+contrat);
+		iEmployeService.ajouterContrat(contrat);
+		
+		
+	}
+		
+	/*
 
 	@Test //// Test pour la methode allContrats Si elle returne 2 on valide sinon Erreur
 	public void getContratTest() throws ParseException { 
@@ -75,5 +96,5 @@ public class AppTimeSheetTest {
 		contratService.deleteContart(contrat);
 		verify(contratrepository,times(1)).delete(contrat);
 	}
-
+*/
 }

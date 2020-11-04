@@ -17,7 +17,7 @@ public class Contrat implements Serializable {
 	private static final long serialVersionUID = 6191889143079517027L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int reference;
 	
 	@Temporal(TemporalType.DATE)
@@ -34,8 +34,23 @@ public class Contrat implements Serializable {
 		super();
 	}
 	
+	public Contrat(Date dateDebut, String typeContrat, float salaire) {
+		this.dateDebut = dateDebut;
+		this.typeContrat = typeContrat;
+		this.salaire = salaire;
+	}
 	
 	
+	
+	
+	public Contrat(int reference, Date dateDebut, String typeContrat, float salaire) {
+		super();
+		this.reference = reference;
+		this.dateDebut = dateDebut;
+		this.typeContrat = typeContrat;
+		this.salaire = salaire;
+	}
+
 	public Contrat(Date dateDebut, String typeContrat, float salaire, Employe employe) {
 		super();
 		this.dateDebut = dateDebut;
@@ -43,15 +58,17 @@ public class Contrat implements Serializable {
 		this.salaire = salaire;
 		this.employe = employe;
 	}
+	
 
 
-
-	public Contrat(Date dateDebut, String typeContrat, float salaire) {
+	public Contrat(int reference, Date dateDebut, String typeContrat, float salaire, Employe employe) {
+		super();
+		this.reference = reference;
 		this.dateDebut = dateDebut;
 		this.typeContrat = typeContrat;
 		this.salaire = salaire;
+		this.employe = employe;
 	}
-
 
 	public Date getDateDebut() {
 		return dateDebut;
@@ -91,6 +108,12 @@ public class Contrat implements Serializable {
 
 	public void setEmploye(Employe employe) {
 		this.employe = employe;
+	}
+
+	@Override
+	public String toString() {
+		return "Contrat [reference=" + reference + ", dateDebut=" + dateDebut + ", typeContrat=" + typeContrat
+				+ ", salaire=" + salaire + ", employe=" + employe + "]";
 	}
 	
 	
