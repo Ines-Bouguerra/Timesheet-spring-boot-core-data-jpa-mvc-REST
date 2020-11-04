@@ -44,7 +44,7 @@ public class MissionServiceImpl implements IMissionService {
 
 	@Override
 	public List<Mission> getMissionsByDepartement(int departementId) {
-		Departement dep = departementRepository.findById(departementId).orElse(null);
+		Departement dep = departementRepository.findById(departementId).get();
 		List<Mission> missions = new ArrayList<>();
 		for(Mission mis : missionRepository.findAll()){
 			if (mis.getDepartement() == dep){

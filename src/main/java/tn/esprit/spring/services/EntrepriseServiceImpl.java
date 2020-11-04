@@ -40,8 +40,8 @@ public class EntrepriseServiceImpl implements IEntrepriseService {
 	@Override
 	public void affecterDepartementAEntreprise(int depId, int entrepriseId) {
 		
-				Entreprise entrepriseManagedEntity = entrepriseRepoistory.findById(entrepriseId).orElse(null);
-				Departement depManagedEntity = deptRepoistory.findById(depId).orElse(null);
+				Entreprise entrepriseManagedEntity = entrepriseRepoistory.findById(entrepriseId).get();
+				Departement depManagedEntity = deptRepoistory.findById(depId).get();
 				logger.info("In affecterDepartementAEntreprise method : Departement not affected");
 				depManagedEntity.setEntreprise(entrepriseManagedEntity);
 				deptRepoistory.save(depManagedEntity);
@@ -50,7 +50,7 @@ public class EntrepriseServiceImpl implements IEntrepriseService {
 	
 	@Override
 	public List<String> getAllDepartementsNamesByEntreprise(int entrepriseId) {
-		Entreprise entrepriseManagedEntity = entrepriseRepoistory.findById(entrepriseId).orElse(null);
+		Entreprise entrepriseManagedEntity = entrepriseRepoistory.findById(entrepriseId).get();
 		List<String> depNames = new ArrayList<>();
 		logger.info("In getAllDepartementsNamesByEntreprise method");
 		for(Departement dep : entrepriseManagedEntity.getDepartements()){
@@ -74,7 +74,7 @@ public class EntrepriseServiceImpl implements IEntrepriseService {
 	@Transactional
 	@Override
 	public void deleteDepartementById(int depId) {
-		deptRepoistory.delete(deptRepoistory.findById(depId).orElse(null));	
+		deptRepoistory.delete(deptRepoistory.findById(depId).get());	
 		logger.info("Departement deleted successfully");
 	}
 
@@ -82,12 +82,12 @@ public class EntrepriseServiceImpl implements IEntrepriseService {
 	public Entreprise getEntrepriseById(int entrepriseId) {
 		try{
 		logger.info("getEntrepriseById method");
-		 entrepriseRepoistory.findById(entrepriseId).orElse(null);	}
+		 entrepriseRepoistory.findById(entrepriseId).get();	}
 		catch (Exception e) {
 			logger.error("Error in getEntrepriseById : " + e );
 		}
 		
-		return entrepriseRepoistory.findById(entrepriseId).orElse(null);	
+		return entrepriseRepoistory.findById(entrepriseId).get();	
 	}
 
 }

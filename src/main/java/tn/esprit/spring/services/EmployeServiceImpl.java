@@ -47,7 +47,7 @@ public class EmployeServiceImpl implements IEmployeService {
 	}
 
 	public void mettreAjourEmailByEmployeId(String email, int employeId) {
-		Employe employe = employeRepository.findById(employeId).orElse(null);
+		Employe employe = employeRepository.findById(employeId).get();
 		try{
 		employe.setEmail(email);
 		employeRepository.save(employe);
@@ -60,8 +60,8 @@ public class EmployeServiceImpl implements IEmployeService {
 
 	@Transactional	
 	public void affecterEmployeADepartement(int employeId, int depId) {
-		Departement depManagedEntity = deptRepoistory.findById(depId).orElse(null);
-		Employe employeManagedEntity = employeRepository.findById(employeId).orElse(null);
+		Departement depManagedEntity = deptRepoistory.findById(depId).get();
+		Employe employeManagedEntity = employeRepository.findById(employeId).get();
 
 		if(depManagedEntity.getEmployes() == null){
 
