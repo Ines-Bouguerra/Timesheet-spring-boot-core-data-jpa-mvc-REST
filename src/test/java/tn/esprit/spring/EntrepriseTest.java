@@ -1,5 +1,7 @@
 package tn.esprit.spring;
 
+import static org.junit.Assert.assertNotNull;
+
 import java.text.ParseException;
 
 import org.junit.Test;
@@ -18,9 +20,7 @@ public class EntrepriseTest {
 
 	@Autowired
 	EntrepriseServiceImpl entrepriseService;
-	
-	
-	
+
 	
 	
 	@Test
@@ -34,21 +34,20 @@ public class EntrepriseTest {
 	
 	@Test
 	public void ajouterDepartement() throws ParseException{
-//		Departement departement = new Departement("Embarqué");
-//		entrepriseService.ajouterDepartement(departement);
+		Departement departement = new Departement("Embarqué");
+		entrepriseService.ajouterDepartement(departement);
 	}
 	
 	
 	@Test
-	public void affecterDepartementAEntreprise()throws ParseException{
-		
-//		entrepriseService.affecterDepartementAEntreprise(1,4);
-				}
+	public void affecterDepartementAEntreprise()throws ParseException{		
+		entrepriseService.affecterDepartementAEntreprise(1,1);
+	}
 	
 	
 	@Test
 	public void getAllDepartementsNamesByEntreprise() throws ParseException{
-//		entrepriseService.getAllDepartementsNamesByEntreprise(1);
+		assertNotNull(entrepriseService.getAllDepartementsNamesByEntreprise(1));
 	}
 	
 	
@@ -61,12 +60,12 @@ public class EntrepriseTest {
 	
 	@Test
 	public void deleteDepartementById() throws ParseException{
-//		entrepriseService.deleteDepartementById(2);
+		entrepriseService.deleteDepartementById(1);
 	}
 	
 	@Test
 	public void getEntrepriseById() throws ParseException{
-//		entrepriseService.getEntrepriseById(2);
+		assertNotNull(entrepriseService.getEntrepriseById(1));
 	}
 	
 	

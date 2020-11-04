@@ -1,7 +1,8 @@
 package tn.esprit.spring;
 
-import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.when;
+
+
+import static org.junit.Assert.assertNotNull;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -15,7 +16,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import tn.esprit.spring.entities.Contrat;
 import tn.esprit.spring.entities.Employe;
 import tn.esprit.spring.entities.Mission;
 import tn.esprit.spring.entities.Role;

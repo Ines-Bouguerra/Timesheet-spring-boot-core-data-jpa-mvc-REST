@@ -5,6 +5,9 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import static org.junit.Assert.assertNotNull;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -37,7 +40,6 @@ public class EmployeTest {
 
 	SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 
-/*
 	@Test
 	public void addOrUpEmploye() throws ParseException {
 		Employe employe = new Employe(2, "amine", "bousbih", "a@gmail.com", "123456l", true, Role.INGENIEUR);
@@ -76,21 +78,21 @@ public class EmployeTest {
 		employeService.ajouterContrat(contrat);
 	}
 	
-	@Test
-	public void affectEmplContrat() throws ParseException {
-		employeService.affecterContratAEmploye(1,2);
-	}
+//	@Test
+//	public void affectEmplContrat() throws ParseException {
+//		employeService.affecterContratAEmploye(1,2);
+//	}
 	
 	@Test
 	public void getEmployePrenomById() throws ParseException {
-		employeService.getEmployePrenomById(8);
+		assertNotNull(employeService.getEmployePrenomById(1));
 
 	}  
 
-	@Test
-	public void deleteEmpById() throws ParseException {
-		employeService.deleteEmployeById(7);
-	}   
+//	@Test
+//	public void deleteEmpById() throws ParseException {
+//		employeService.deleteEmployeById(7);
+//	}   
 	
 		
 	
@@ -112,7 +114,7 @@ public class EmployeTest {
 
 	@Test
 	public void getAllEmployes() throws ParseException {
-		employeService.getAllEmployeNamesJPQL();
+		assertNotNull(employeService.getAllEmployeNamesJPQL());
 	}
 	
 	
@@ -121,7 +123,7 @@ public class EmployeTest {
 	public void getEmployesByEntreprise() throws ParseException {
 		Entreprise entreprise = new Entreprise("esprit","education");
 		iEntrepriseService.ajouterEntreprise(entreprise);
-		employeService.getAllEmployeByEntreprise(entreprise);
+		assertNotNull(employeService.getAllEmployeByEntreprise(entreprise));
 	}
 	
 	@Test
@@ -139,21 +141,16 @@ public class EmployeTest {
 	
 	
 	
-	@Test
-	public void getSalaireMoyenByDepartementId() throws ParseException {
-		employeService.getSalaireMoyenByDepartementId(1);
-	}
+//	@Test
+//	public void getSalaireMoyenByDepartementId() throws ParseException {
+//		assertNotNull(employeService.getSalaireMoyenByDepartementId(1));
+//	}
 	
 	
-
-	@Test
-	public void getAllEmployes() throws ParseException {
-		employeService.getAllEmployes();
-	}
-	*/
+	
 	@Test
 	public void authenticate() throws ParseException {
-		employeService.authenticate("ab@gmail.com","123456l5555");
+		assertNotNull(employeService.authenticate("ab@gmail.com","123456l5555"));
 	}
 	
 	

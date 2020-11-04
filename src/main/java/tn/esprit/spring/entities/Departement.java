@@ -35,6 +35,13 @@ public class Departement implements Serializable{
 	public Departement() {
 		super();
 	}
+	
+	public Departement(String name) {
+		super();
+		this.name = name;
+	}
+
+
 
 	public int getId() {
 		return id;
