@@ -21,7 +21,7 @@ public class EntrepriseTest {
 	
 	
 	
-	/*
+	
 	
 	@Test
 	public void ajouterEntreprise() throws ParseException{
@@ -30,7 +30,7 @@ public class EntrepriseTest {
 		entrepriseService.ajouterEntreprise(entreprise);
 	}
 	
-	 
+	/*
 	
 	@Test
 	public void ajouterDepartement() throws ParseException{
