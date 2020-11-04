@@ -45,7 +45,7 @@ public class MissionTest {
 	
 	@Test
 	public void countMissions() throws ParseException{
-		assertNotNull(iMissionService.nbrMissions());
+		iMissionService.nbrMissions();
 	}
 	
 	@Test
