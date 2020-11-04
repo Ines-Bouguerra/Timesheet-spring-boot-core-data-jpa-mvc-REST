@@ -21,7 +21,7 @@ public class EntrepriseTest {
 	
 	
 	
-	/*
+	
 	
 	@Test
 	public void ajouterEntreprise() throws ParseException{
@@ -31,7 +31,7 @@ public class EntrepriseTest {
 	}
 	
 	 
-	
+	/*
 	@Test
 	public void ajouterDepartement() throws ParseException{
 		Departement departement = new Departement("Embarqué");
@@ -68,7 +68,7 @@ public class EntrepriseTest {
 	public void getEntrepriseById() throws ParseException{
 		entrepriseService.getEntrepriseById(2);
 	}
-	
 	*/
+	
 }
 

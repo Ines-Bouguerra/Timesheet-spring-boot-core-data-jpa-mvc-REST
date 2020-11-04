@@ -59,6 +59,11 @@ public class Departement implements Serializable{
 		return serialVersionUID;
 	}
 
+	public Departement(String name) {
+		super();
+		this.name = name;
+	}
+
 	public List<Employe> getEmployes() {
 		return employes;
 	}
