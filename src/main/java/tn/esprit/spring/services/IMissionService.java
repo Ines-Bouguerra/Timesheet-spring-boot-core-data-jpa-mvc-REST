@@ -9,5 +9,5 @@ public interface IMissionService {
 	void addMission(Mission mission);
 	int nbrMissions();
 	List <Mission> getMissionsByDepartement(int departementId);
-
+	void deleteAllMissions();
 }

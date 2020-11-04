@@ -53,10 +53,13 @@ public class MissionServiceImpl implements IMissionService {
 		}	
 		logger.info("This is the list of missions By departement" + missions);
 		
-		return missions;
+		return missions;			
 		
-			
-		
+	}
+	
+	@Override
+	public void deleteAllMissions() {
+		departementRepository.deleteAll();
 	}
 
 
