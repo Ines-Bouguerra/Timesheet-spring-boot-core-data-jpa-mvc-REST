@@ -47,7 +47,7 @@ public class EmployeServiceImpl implements IEmployeService {
 	
 	public int ajouterEmploye(Employe employe) {
 		employeRepository.save(employe);
-		logger.info("the employe" +employe.getNom()+"is added:");
+		logger.info("the employe" +employe.getNom()+"is added successfully:");
 		return employe.getId();
 	}
 
