@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import tn.esprit.spring.entities.Mission;
 
 @Repository
-public interface MissionRepository extends CrudRepository<Mission,Integer>{
+public interface missionRepository extends CrudRepository<Mission,Integer>{
 	@Query(value="select count(*) FROM mission",nativeQuery=true)
 	public float numberMissions();	
 
