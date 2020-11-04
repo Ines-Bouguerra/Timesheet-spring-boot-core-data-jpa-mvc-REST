@@ -15,7 +15,7 @@ import tn.esprit.spring.repository.missionRepository;
 @Service
 public class MissionServiceImpl implements IMissionService {
 
-	private static final Logger logger = Logger.getLogger(TimesheetServiceImpl.class);
+	private static final Logger logger = Logger.getLogger(MissionServiceImpl.class);
 	
 	@Autowired
 	missionRepository missionRepository;

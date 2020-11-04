@@ -21,8 +21,7 @@ public class RestControlTimesheet {
 	@Autowired
 	ITimesheetService itimesheetservice;
 
-	// http://localhost:8086/SpringMVC/servlet/ajouterTimesheet{"missionId":1,"employeId":2,"dateDebut":"2020-03-01","dateFin":"2021-03-01"}
-
+	
 	@PostMapping("/ajouterTimesheet/idmission/idemp/dated/datef")
 	@ResponseBody
 	public void ajouterTimesheet(@PathVariable("idmission") int missionId, @PathVariable("idemp") int employeId,
