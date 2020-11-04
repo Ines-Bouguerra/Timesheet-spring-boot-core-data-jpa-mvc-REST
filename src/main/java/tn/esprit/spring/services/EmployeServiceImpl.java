@@ -20,7 +20,7 @@ import tn.esprit.spring.repository.EmployeRepository;
 @Service 
 public class EmployeServiceImpl implements IEmployeService {
 
-	private static final Logger logger = Logger.getLogger(TimesheetServiceImpl.class);
+	private static final Logger logger = Logger.getLogger(EmployeServiceImpl.class);
 
 	
 	@Autowired
@@ -101,7 +101,7 @@ public class EmployeServiceImpl implements IEmployeService {
 	}
 
 	public void affecterContratAEmploye(int contratId, int employeId) {
-		Contrat contratManagedEntity = contratRepoistory.findById(contratId).orElse(null);
+		Contrat contratManagedEntity = contratRepoistory.findById(contratId).get();
 		Employe employeManagedEntity = employeRepository.findById(employeId).orElse(null);
 
 		contratManagedEntity.setEmploye(employeManagedEntity);

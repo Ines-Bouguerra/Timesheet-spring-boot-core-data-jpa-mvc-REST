@@ -1,8 +1,7 @@
 package tn.esprit.spring;
 
-
-
 import static org.junit.Assert.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -44,6 +43,7 @@ public class TimesheetTest {
 	public void addEmploye() throws ParseException {
 		Employe employe = new Employe(2, "amine", "amine", "a@gmail.com", "123456l", true, Role.INGENIEUR);
 		iEmployeService.addOrUpdateEmploye(employe);
+		assertEquals(employe.getId(), 2);
 
 	}
 
@@ -57,15 +57,16 @@ public class TimesheetTest {
 		Date dateDebut = dateFormat.parse("22/10/2020");
 		Date dateFin = dateFormat.parse("31/10/2020");
 		iEmployeService.addOrUpdateEmploye(employe);
-//		iTimesheetService.ajouterTimesheet(1, employe.getId(), dateDebut, dateFin);
+		iTimesheetService.ajouterTimesheet(1, employe.getId(), dateDebut, dateFin);
+		assertEquals(employe.getId(), 1);
 
 	}
 
 	@Test
 	public void validateTimesheet() throws ParseException {
-//		Date dateDebut = dateFormat.parse("22/10/2020");
-//		Date dateFin = dateFormat.parse("31/10/2020");
-//		iTimesheetService.validerTimesheet(1, 3, dateDebut, dateFin, 2);
+		Date dateDebut = dateFormat.parse("22/10/2020");
+		Date dateFin = dateFormat.parse("31/10/2020");
+		iTimesheetService.validerTimesheet(1, 3, dateDebut, dateFin, 2);
 
 	}
 
@@ -74,7 +75,8 @@ public class TimesheetTest {
 		Date dateDebut = dateFormat.parse("22/10/2020");
 		Date dateFin = dateFormat.parse("31/10/2020");
 		iMissionService.addMission(mission);
-		timesheets = iTimesheetService.getTimesheetsByMissionAndDate(employe, mission, dateDebut, dateFin);
+		assertNotNull(
+				timesheets = iTimesheetService.getTimesheetsByMissionAndDate(employe, mission, dateDebut, dateFin));
 	}
 
 }
