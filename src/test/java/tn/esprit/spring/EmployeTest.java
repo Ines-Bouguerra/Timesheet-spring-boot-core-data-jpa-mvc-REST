@@ -52,7 +52,8 @@ public class EmployeTest {
 	@Test
 	public void addOrEmploye() throws ParseException {
 		Employe employe = new Employe(5,"aminb", "bousbih", "a.b@gmail.com", "1234562", true, Role.INGENIEUR);
-		assertNotNull(iEmployeService.ajouterEmploye(employe));
+		iEmployeService.ajouterEmploye(employe);
+		org.assertj.core.api.Assertions.assertThat(employe.getId()).isEqualTo(5);
 	}
 	
 		
