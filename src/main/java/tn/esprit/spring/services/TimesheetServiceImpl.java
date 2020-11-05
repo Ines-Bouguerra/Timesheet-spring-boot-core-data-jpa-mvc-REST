@@ -57,12 +57,16 @@ public class TimesheetServiceImpl implements ITimesheetService {
 			logger.error("The employee must be the head of the department to validate a timesheet!+++++++++++++++++++"
 					+ validateur.getRole());
 		}
-		boolean chefDeLaMission = true;
-		
-		
-		if (!chefDeLaMission) {
-			logger.error("the employee must be the head of the department of the mission in question");
-		}
+//		boolean chefDeLaMission = false;
+//		for (Departement dep : validateur.getDepartements()) {
+//			if (dep.getId() == mRepository.findById(missionId).get().getDepartement().getId() ) {
+//				chefDeLaMission = true;
+//				break;
+//			}
+//		}
+//		if (!chefDeLaMission) {
+//			logger.error("the employee must be the head of the department of the mission in question");
+//		}
 		TimesheetPK timesheetPK = new TimesheetPK(missionId, employeId, dateDebut, dateFin);
 		Timesheet timesheet = timesheetRepository.findBytimesheetPK(timesheetPK);
 		timesheet.setValide(true);
