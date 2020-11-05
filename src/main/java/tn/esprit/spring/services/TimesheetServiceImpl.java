@@ -59,7 +59,7 @@ public class TimesheetServiceImpl implements ITimesheetService {
 		}
 		boolean chefDeLaMission = false;
 		for (Departement dep : validateur.getDepartements()) {
-			if (dep.getId() == mission.getDepartement().getId() || dep.getId() == 0) {
+			if (dep.getId() == mRepository.findById(missionId).get().getDepartement().getId() ) {
 				chefDeLaMission = true;
 				break;
 			}
