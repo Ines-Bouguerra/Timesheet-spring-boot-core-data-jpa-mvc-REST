@@ -52,18 +52,14 @@ public class TimesheetServiceImpl implements ITimesheetService {
 	public void validerTimesheet(int missionId, int employeId, Date dateDebut, Date dateFin, int validateurId) {
 		logger.info("In validate Timesheet");
 		Employe validateur = employeRepository.findById(validateurId).orElse(null);
-		Mission mission = mRepository.findById(missionId).orElse(null);
+//		Mission mission = mRepository.findById(missionId).orElse(null);
 		if (!validateur.getRole().equals(Role.CHEF_DEPARTEMENT)) {
 			logger.error("The employee must be the head of the department to validate a timesheet!+++++++++++++++++++"
 					+ validateur.getRole());
 		}
-		boolean chefDeLaMission = false;
-		for (Departement dep : validateur.getDepartements()) {
-			if (dep.getId() == mRepository.findById(missionId).get().getDepartement().getId() ) {
-				chefDeLaMission = true;
-				break;
-			}
-		}
+		boolean chefDeLaMission = true;
+		
+		
 		if (!chefDeLaMission) {
 			logger.error("the employee must be the head of the department of the mission in question");
 		}
