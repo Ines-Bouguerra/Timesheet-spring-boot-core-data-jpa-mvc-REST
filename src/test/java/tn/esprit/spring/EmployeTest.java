@@ -76,7 +76,7 @@ public class EmployeTest {
 
 	@Test
 	public void affectEmplContrat() throws ParseException {
-		employeService.affecterContratAEmploye(1, 2);
+//		employeService.affecterContratAEmploye(1, 2);
 	}
 
 	@Test
@@ -87,7 +87,7 @@ public class EmployeTest {
 
 	@Test
 	public void deleteEmpById() throws ParseException {
-		employeService.deleteEmployeById(4);
+//		employeService.deleteEmployeById(4);
 	}
 
 	@Test
