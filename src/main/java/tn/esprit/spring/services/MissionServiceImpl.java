@@ -53,8 +53,7 @@ public class MissionServiceImpl implements IMissionService {
 		}	
 		logger.info("This is the list of missions By departement" + missions);
 		
-		return missions;			
-		
+		return missions;					
 	}
 	
 	public void deleteMissionById(int missionId) {
@@ -66,8 +65,6 @@ public class MissionServiceImpl implements IMissionService {
 		catch (Exception e) {
 			logger.error("Error : id not found " + e);
 		}
-		
-
 	}
 
 
