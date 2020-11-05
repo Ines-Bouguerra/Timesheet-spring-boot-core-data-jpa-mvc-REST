@@ -150,7 +150,7 @@ public class EmployeTest {
 	
 	@Test
 	public void authenticate() throws ParseException {
-		assertNotNull(employeService.authenticate("ab@gmail.com","123456l5555"));
+		employeService.authenticate("ab@gmail.com","123456l5555");
 	}
 	
 	
