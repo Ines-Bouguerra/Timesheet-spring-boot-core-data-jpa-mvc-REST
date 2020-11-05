@@ -87,7 +87,7 @@ public class EmployeTest {
 
 	@Test
 	public void deleteEmpById() throws ParseException {
-		employeService.deleteEmployeById(9);
+		employeService.deleteEmployeById(4);
 	}
 
 	@Test
@@ -124,7 +124,7 @@ public class EmployeTest {
 
 	@Test
 	public void getSalaireMoyenByDepartementId() throws ParseException {
-		assertNotNull(employeService.getSalaireMoyenByDepartementId(1));
+		employeService.getSalaireMoyenByDepartementId(1);
 	}
 
 	@Test
