@@ -57,9 +57,17 @@ public class MissionServiceImpl implements IMissionService {
 		
 	}
 	
-	@Override
-	public void deleteAllMissions() {
-		departementRepository.deleteAll();
+	public void deleteMissionById(int missionId) {
+		try{
+		Mission contratManagedEntity = missionRepository.findById(missionId).orElse(null);	
+		missionRepository.delete(contratManagedEntity);
+		logger.info("the mission is removed");
+		}
+		catch (Exception e) {
+			logger.error("Error : id not found " + e);
+		}
+		
+
 	}
 
 

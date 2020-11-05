@@ -51,8 +51,8 @@ public class MissionTest {
 	}
 	
 	@Test
-	public void deleteAllMission() throws ParseException{
-		iMissionService.deleteAllMissions();
+	public void deleteMissionById() throws ParseException{
+		iMissionService.deleteMissionById(1);
 	}
 	
 }
