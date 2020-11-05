@@ -21,42 +21,52 @@ public class EntrepriseTest {
 	@Autowired
 	EntrepriseServiceImpl entrepriseService;
 
+	
+	
 	@Test
-	public void ajouterEntreprise() throws ParseException {
-
-		Entreprise entreprise = new Entreprise("TELNET", "SCIENCE");
+	public void ajouterEntreprise() throws ParseException{
+		
+		Entreprise  entreprise = new Entreprise("TELNET","SCIENCE") ;
 		entrepriseService.ajouterEntreprise(entreprise);
 	}
-
+	
+	 
+	
 	@Test
-	public void ajouterDepartement() throws ParseException {
+	public void ajouterDepartement() throws ParseException{
 		Departement departement = new Departement("Embarqué");
 		entrepriseService.ajouterDepartement(departement);
 	}
-
+	
+	
 	@Test
-	public void affecterDepartementAEntreprise() throws ParseException {
-		entrepriseService.affecterDepartementAEntreprise(1, 1);
+	public void affecterDepartementAEntreprise()throws ParseException{		
+		entrepriseService.affecterDepartementAEntreprise(1,1);
 	}
-
+	
+	
 	@Test
-	public void getAllDepartementsNamesByEntreprise() throws ParseException {
+	public void getAllDepartementsNamesByEntreprise() throws ParseException{
 		assertNotNull(entrepriseService.getAllDepartementsNamesByEntreprise(1));
 	}
-
+	
+	
+	
 	@Test
-	public void deleteEntrepriseById() throws ParseException {
+	public void deleteEntrepriseById() throws ParseException{
 		entrepriseService.deleteEntrepriseById(5);
 	}
-
+	
+	
 	@Test
-	public void deleteDepartementById() throws ParseException {
+	public void deleteDepartementById() throws ParseException{
 		entrepriseService.deleteDepartementById(1);
 	}
-
+	
 	@Test
-	public void getEntrepriseById() throws ParseException {
+	public void getEntrepriseById() throws ParseException{
 		assertNotNull(entrepriseService.getEntrepriseById(1));
 	}
-
+	
+	
 }
