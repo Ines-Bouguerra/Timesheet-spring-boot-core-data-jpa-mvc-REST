@@ -13,8 +13,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 
-
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 //import static org.mockito.Mockito.verify;
@@ -46,7 +45,7 @@ public class ContartTest {
 	
 	/*@Test
 		public void getajout() throws ParseException { 
-		// TEST
+		
 		Employe yasser = new Employe();
 		employeService.addOrUpdateEmploye(yasser); 	
 		yasser =iemployeService.findEmploye(1);
@@ -60,15 +59,16 @@ public class ContartTest {
 	}*/
 	
 	
-
-	@Test //// Test pour la methode allContrats Si elle returne 2 on valide sinon Erreur
+	////Test pour la methode allContrats Si elle returne 2 on valide sinon Erreur
+	@Test 
 	public void getContratTest() throws ParseException { 
 		 Date debut = dateFormat.parse("21/10/2020");
 		when(contratrepository.findAll()).thenReturn(Stream.of(new Contrat(debut,"Contrat de location",32F), new Contrat(debut,"Contrat de vente",440F)).collect(Collectors.toList()));
 		assertEquals(2, icontrat.allContrats().size());
 	}
-
-	@Test //// Test pour la methode Ajout 
+	
+	////Test pour la methode Ajout 
+	@Test 
 	public void saveContratTest() throws ParseException { 
 		
 		 Date debut = dateFormat.parse("21/10/2020");
@@ -77,15 +77,19 @@ public class ContartTest {
 		assertEquals(contrat, icontrat.addContart(contrat));
 	}
 	
+	/// vérifier si la methode a bien ete appele et combien de fois
 	@Test
-	public void deleteUserTest() throws ParseException { /// vrifier si la methode a bien ete appeler et combien de fois 
-		
+	public void deleteUserTest() throws ParseException {  	
 		 Date debut = dateFormat.parse("21/10/2020");
 		Contrat contrat = new Contrat(debut,"Contrat TEST",245F);
 		icontrat.deleteContart(contrat);
 		verify(contratrepository,times(1)).delete(contrat);
 	}
 	
+	@Test
+	public void getContartbyRef() throws ParseException{
+		assertNotNull(icontrat.allContrats());
+	}
 	
 	
 	
